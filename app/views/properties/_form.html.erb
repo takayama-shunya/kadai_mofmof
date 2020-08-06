@@ -1,0 +1,78 @@
+<%= form_with(model: property, local: true) do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :constraction %>
+    <%= form.number_field :constraction %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remark %>
+    <%= form.text_area :remark %>
+  </div>
+
+  <%= form.fields_for :stations do |s| %>  
+    <p>最寄駅<%= @n + 1 %></p>
+    <div class="field">
+      <%= s.label :name %>
+      <%= s.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= s.label :route_name %>
+      <%= s.text_field :route_name %>
+    </div>
+
+    <div class="field">
+      <%= s.label :walking %>
+      <%= s.text_field :walking %>
+    </div>
+  <% end %>
+
+  <%= form.fields_for :stations do |s| %>  
+    <p>最寄駅<%= @n + 1 %></p>
+    <div class="field">
+      <%= s.label :name %>
+      <%= s.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= s.label :route_name %>
+      <%= s.text_field :route_name %>
+    </div>
+
+    <div class="field">
+      <%= s.label :walking %>
+      <%= s.text_field :walking %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
