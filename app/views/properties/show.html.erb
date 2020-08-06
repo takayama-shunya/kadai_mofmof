@@ -7,7 +7,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @property.price %>
+  <%= @property.price %><strong>円</strong>
 </p>
 
 <p>
@@ -17,13 +17,29 @@
 
 <p>
   <strong>Constraction:</strong>
-  <%= @property.constraction %>
+  <%= @property.constraction %><strong>年</strong>
 </p>
 
 <p>
   <strong>Remark:</strong>
   <%= @property.remark %>
 </p>
+
+<% @property.stations.each.with_index(1) do |station, index| %>
+<p>最寄駅<%= index %></p>
+<p>
+  <strong>name:</strong>
+  <%= station.name %>
+</p>
+<p>
+  <strong>route_name:</strong>
+  <%= station.route_name %>
+</p>
+<p>
+  <strong>walking:</strong>
+  <%= station.walking %>分
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>

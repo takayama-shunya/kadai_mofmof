@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price %>円
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :constraction %>
-    <%= form.number_field :constraction %>
+    <%= form.number_field :constraction %>年
   </div>
 
   <div class="field">
@@ -36,8 +36,9 @@
     <%= form.text_area :remark %>
   </div>
 
-  <%= form.fields_for :stations do |s| %>  
-    <p>最寄駅<%= @n + 1 %></p>
+  <% @n = 0 %> 
+  <%= form.fields_for :stations do |s| %> 
+    <p>最寄駅<%= @n += 1%></p>
     <div class="field">
       <%= s.label :name %>
       <%= s.text_field :name %>
@@ -50,25 +51,7 @@
 
     <div class="field">
       <%= s.label :walking %>
-      <%= s.text_field :walking %>
-    </div>
-  <% end %>
-
-  <%= form.fields_for :stations do |s| %>  
-    <p>最寄駅<%= @n + 1 %></p>
-    <div class="field">
-      <%= s.label :name %>
-      <%= s.text_field :name %>
-    </div>
-
-    <div class="field">
-      <%= s.label :route_name %>
-      <%= s.text_field :route_name %>
-    </div>
-
-    <div class="field">
-      <%= s.label :walking %>
-      <%= s.text_field :walking %>
+      <%= s.text_field :walking %>分
     </div>
   <% end %>
 
