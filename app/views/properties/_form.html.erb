@@ -36,8 +36,9 @@
     <%= form.text_area :remark %>
   </div>
 
+  <% n = 0 %>
   <%= form.fields_for :stations do |s| %>
-      最寄駅<%= @n += 1 %>
+      最寄駅<%= n += 1 %>
 
     <div class="field">
       <%= s.label :route_name %>

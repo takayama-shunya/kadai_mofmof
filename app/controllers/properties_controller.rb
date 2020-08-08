@@ -11,12 +11,10 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     2.times { @property.stations.build }
-    @n = 0
   end
 
   def edit
     @property.stations.build
-    @n = 0
   end
 
   def create
