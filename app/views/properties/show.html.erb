@@ -1,42 +1,42 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>物件名:</strong>
   <%= @property.name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>賃料:</strong>
   <%= converthing_jpy(@property.price) %><strong></strong>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>住所:</strong>
   <%= @property.address %>
 </p>
 
 <p>
-  <strong>Constraction:</strong>
+  <strong>築年数:</strong>
   <%= @property.constraction %><strong>年</strong>
 </p>
 
 <p>
-  <strong>Remark:</strong>
+  <strong>備考:</strong>
   <%= @property.remark %>
 </p>
 
 <% @property.stations.each.with_index(1) do |station, index| %>
 <p>最寄駅<%= index %></p>
 <p>
-  <strong>name:</strong>
-  <%= station.name %>
-</p>
-<p>
-  <strong>route_name:</strong>
+  <strong>路線名:</strong>
   <%= station.route_name %>
 </p>
 <p>
-  <strong>walking:</strong>
+  <strong>駅名:</strong>
+  <%= station.name %>
+</p>
+<p>
+  <strong>徒歩分数:</strong>
   <%= station.walking %>分
 </p>
 <% end %>
