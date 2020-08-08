@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Properties</h1>
+<h1>物件一覧</h1>
 
 <table>
   <thead>
@@ -18,9 +18,9 @@
     <% @properties.each do |property| %>
       <tr>
         <td><%= property.name %></td>
-        <td><%= property.price %></td>
+        <td><%= property.price %>円</td>
         <td><%= property.address %></td>
-        <td><%= property.constraction %></td>
+        <td><%= property.constraction %>年</td>
         <td><%= property.remark %></td>
         <td><%= link_to 'Show', property %></td>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Property', new_property_path %>
+<%= link_to '物件を登録する', new_property_path %>

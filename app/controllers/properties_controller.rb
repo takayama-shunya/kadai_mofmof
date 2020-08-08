@@ -1,6 +1,5 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
-  before_action :registered_station_number, only: [:show, :edit]
 
   # GET /properties
   # GET /properties.json
@@ -17,10 +16,13 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     2.times { @property.stations.build }
+    @n = 0
   end
 
   # GET /properties/1/edit
   def edit
+    @property.stations.build
+    @n = 0
   end
 
   # POST /properties
@@ -48,10 +50,7 @@ class PropertiesController < ApplicationController
   # DELETE /properties/1.json
   def destroy
     @property.destroy
-    respond_to do |format|
-      format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to properties_url, notice: 'Property was successfully destroyed.'
   end
 
   private
@@ -60,11 +59,7 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
   end
 
-  def registered_station_number
-    @n = @property.stations.count
-  end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list through.
   def property_params
     params.require(:property).permit(
       :name, :price, :address, :constraction, :remark,

@@ -36,9 +36,9 @@
     <%= form.text_area :remark %>
   </div>
 
-  <% @n = 0 %> 
-  <%= form.fields_for :stations do |s| %> 
-    <p>最寄駅<%= @n += 1%></p>
+  <%= form.fields_for :stations do |s| %>
+      最寄駅<%= @n += 1 %>
+
     <div class="field">
       <%= s.label :name %>
       <%= s.text_field :name %>
@@ -54,6 +54,7 @@
       <%= s.text_field :walking %>分
     </div>
   <% end %>
+
 
   <div class="actions">
     <%= form.submit %>
